@@ -28,7 +28,7 @@ def handle(msg):
         print(latitude + " , " + longitude)
         print(discovered)
 
-bot = telepot.Bot('378434389:AAGVOVAmRj8OBByMAvHe-lBktNWowuxYa3w')
+bot = telepot.Bot('TOLKEN')
 bot.message_loop(handle)
 
 try:
