@@ -31,7 +31,6 @@ def handle(msg):
                 conn = sqlite3.connect('base.db')
                 cursor = conn.cursor()
                 cursor.execute("CREATE TABLE dados (seq BIGINT, data DATE NOT NULL, portal TEXT NOT NULL, latitude FLOAT, longitude FLOAT, discovered TEXT NOT NULL);")
-                conn.close()
                 sequencial = 1
             # se a tabela já existir, descobrir qual é o maior valor do sequencial
             else:
@@ -42,7 +41,6 @@ def handle(msg):
                 sequencial = fetch[0] + 1
 
             # inserir dados na base.db
-            conn = sqlite3.connect('base.db')
             cursor = conn.cursor()
             cursor.execute("INSERT INTO dados (seq, data, portal, latitude, longitude, discovered) VALUES (?,?,?,?,?,?);", (sequencial, data, portal, latitude, longitude, discovered))
             conn.commit()
